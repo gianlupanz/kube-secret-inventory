@@ -23,8 +23,7 @@ Once the ksi command will be generated, it's possible to run it.
 This is the usage:
 
 ```
-Usage: /usr/local/bin/ksi cluster-name
-   - cluster-name: The name of the cluster.
+Usage: /usr/local/bin/ksi
    -h, --help: Display this help message.
 
 IMPORTANT - remember to setup the $HOME/.kube in order to access to cluster with kubectl command.
@@ -37,7 +36,7 @@ This is an example of output:
 ```
 > echo $PWD
 /home
-> ksi cluster-prod
+> ksi
 
 ------> Checking secrets in cluster cluster-prod....
 
