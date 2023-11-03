@@ -1,3 +1,7 @@
+# This script is created by Gianluca Panzuto
+# Copyright (C) Nov 3rd, 2023 Gianluca Panzuto
+# All rights reserved.
+
 import csv
 import openpyxl
 import argparse
