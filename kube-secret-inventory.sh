@@ -119,9 +119,9 @@ echo "------> Done processing secrets in all namespaces on cluster $cluster"
 
 echo ""
 echo "Exporting secrets in excel file..."
-python3 converter.py --input inventory/secret-inventory-$cluster.txt --output inventory/secret-inventory-$cluster.xlsx
+python3 /usr/local/bin/converter.py --input $PWD/inventory/secret-inventory-$cluster.txt --output $PWD/inventory/secret-inventory-$cluster.xlsx
 echo "Done!"
 echo "Created new excel file in $PWD/inventory/secret-inventory-$cluster.xlsx"
 echo ""
-rm inventory/secret-inventory-$cluster.txt
+rm $PWD/inventory/secret-inventory-$cluster.txt
 
