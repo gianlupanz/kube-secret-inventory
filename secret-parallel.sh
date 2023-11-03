@@ -64,7 +64,7 @@ process_secrets() {
 
         echo "$kube_secret $type $difference_days $namespace $created_by $service_account_name $expiration" >> inventory/secret-inventory-$cluster.txt
     done
-    echo "------> Done processing secrets in namespace $namespace on cluster $cluster"
+    echo "---> Done processing secrets in namespace $namespace on cluster $cluster"
 }
 
 # Check if the script is called with the help option
@@ -82,8 +82,7 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-
-clusters=$1
+cluster=$1
 
 # Each inventory will be stored in a folder called "inventory"
 
@@ -107,7 +106,7 @@ echo ""
 
 echo "$namespaces" | xargs -I {} -P 8 bash -c 'process_secrets "{}" "$cluster"'
 echo ""
-echo "---> Done processing secrets in all namespaces on cluster $cluster"
+echo "------> Done processing secrets in all namespaces on cluster $cluster"
 
 # Convert the txt file to excel, called secret-inventory-<cluster-name>.xlsx and stored under "inventory" folder
 
@@ -115,6 +114,7 @@ echo ""
 echo "Exporting secrets in excel file..."
 python3 converter.py --input inventory/secret-inventory-$cluster.txt --output inventory/secret-inventory-$cluster.xlsx
 echo "Done!"
+echo "Created new excel file in $PWD/inventory/secret-inventory-$cluster.xlsx"
 echo ""
 rm inventory/secret-inventory-$cluster.txt
 
