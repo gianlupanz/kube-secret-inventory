@@ -4,6 +4,9 @@
 # Copyright (C) Nov 3rd, 2023 Gianluca Panzuto
 # All rights reserved.
 
+
+# Function to display how to run the tool
+
 function usage() {
     echo "Usage: $0 cluster-name"
     echo "   - cluster-name: The name of the cluster."
@@ -98,7 +101,7 @@ mkdir -p inventory
 export -f process_secrets
 export cluster
 
-# Loop through clusters and namespaces and use xargs for parallel processing
+# Loop through namespaces and use xargs for parallel processing
 
 namespaces=$(kubectl get ns | awk '{print $1}' | tail -n +2)
 
