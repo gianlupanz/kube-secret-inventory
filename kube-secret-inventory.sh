@@ -8,8 +8,7 @@
 # Function to display how to run the tool
 
 function usage() {
-    echo "Usage: $0 cluster-name"
-    echo "   - cluster-name: The name of the cluster."
+    echo "Usage: $0"
     echo "   -h, --help: Display this help message."
     echo ""
     echo "IMPORTANT - remember to setup the $HOME/.kube in order to access to cluster with kubectl command."
@@ -83,13 +82,13 @@ fi
 
 # Check if the script is called with exactly one parameter
 
-if [ "$#" -ne 1 ]; then
+if [ "$#" -ne 0 ]; then
     echo "Illegal number of parameters!"
     usage
     exit 1
 fi
 
-cluster=$1
+cluster=$(kubectl config current-context | cut -d'/' -f1)
 
 # Each inventory will be stored in a folder called "inventory"
 
