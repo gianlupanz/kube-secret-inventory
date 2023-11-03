@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This script is created by Gianluca Panzuto
+# Copyright (C) Nov 3rd, 2023 Gianluca Panzuto
+# All rights reserved.
+
 function usage() {
     echo "Usage: $0 cluster-name"
     echo "   - cluster-name: The name of the cluster."
